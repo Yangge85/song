@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 25px;
+            background-color: rgb(15, 217, 42);
+            text-align: center;
+            border: 1px solid #000;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            color: #0074d9;
+        }
+
+        video {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        #mainVideo {}
+    </style>
+</head>
+
+<body>
+    <h1>悠悠专属点歌台</h1>
+    <div id="videoContainer">
+        <video id="mainVideo" controls></video>
+    </div>
+    <ul id="videoList">
+        <!-- 视频链接将在这里自动生成 -->
+    </ul>
+
+    <script>
+        const mainVideo = document.getElementById('mainVideo');
+
+        function playVideo(src) {
+            mainVideo.src = src;
+            mainVideo.play();
+        }
+
+        function addVideoLink(src, title) {
+            var videoList = document.getElementById('videoList');
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = "javascript:void(0)"; // 防止点击链接跳转
+            a.textContent = title;
+
+            li.appendChild(a);
+            videoList.appendChild(li);
+
+            a.addEventListener('click', function () {
+                playVideo(src);
+            });
+        }
+
+        // 批量添加视频链接，只需提供路径和标题
+        // addVideoLink("./video/我是挖掘机.mp4", "我是挖掘机");
+        addVideoLink("./video/世上只有妈妈好.mov", "世上只有妈妈好");
+        addVideoLink("./video/好朋友.mov", "好朋友");
+        addVideoLink("./video/小手拍拍.mov", "小手拍拍");
+        addVideoLink("./video/小兔子乖乖.mov", "小兔子乖乖");
+        addVideoLink("./video/爸爸去哪.mov", "爸爸去哪");
+        addVideoLink("./video/拼音歌.mov", "拼音歌");
+        addVideoLink("./video/上学歌.mov", "上学歌");
+        addVideoLink("./video/我的好妈妈.mov", "我的好妈妈");
+        // addVideoLink("./video/字母歌.mp4", "字母歌");
+    </script>
+</body>
+
+</html>
